@@ -1,4 +1,5 @@
 package baseball;
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class Stats {
@@ -43,6 +44,7 @@ public class Stats {
 	
 	public double SLG() {
 		return (double)(this.totalBases()) / atBats;
+		
 	}
 	
 	public double OPS() {
@@ -51,6 +53,7 @@ public class Stats {
 	
 	
 	public static void main(String args[]) {
+		DecimalFormat df = new DecimalFormat(".###");
 		Scanner scan = new Scanner(System.in);
 		
 		System.out.println("Enter player name : ");
@@ -73,8 +76,8 @@ public class Stats {
 		Stats player = new Stats(name, ab, hits, doubles, triples, hr, r, bb);
 		scan.close();
 		
-		System.out.println("Player Name : " + player.name + "\nBatting Avg : " + player.BA() + "\nOBP : " 
-		+ player.OBP() + "\nSLG : " + player.SLG() + "\nOPS : " + player.OPS() + "\nTotal Bases : " + player.totalBases());
+		System.out.println("Player Name : " + (player.name) + "\nBatting Avg : " + df.format(player.BA()) + "\nOBP : " 
+		+ df.format(player.OBP()) + "\nSLG : " + df.format(player.SLG()) + "\nOPS : " + df.format(player.OPS()) + "\nTotal Bases : " + player.totalBases());
 	}
 	
 }
